@@ -1,0 +1,31 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: shared-api-ingress
+  namespace: edge
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - api.utkrusht.local
+      secretName: shared-api-tls
+  rules:
+    - host: api.utkrusht.local
+      http:
+        paths:
+          - path: /api1
+            pathType: Prefix
+            backend:
+              service:
+                name: api1-edge
+                port:
+                  number: 80
+          - path: /api2
+            pathType: Prefix
+            backend:
+              service:
+                name: api2-edge
+                port:
+                  number: 80

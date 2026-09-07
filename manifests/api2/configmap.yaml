@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: api2-runtime
+  namespace: api1
+data:
+  API_MESSAGE: "assessment sessions api ready"

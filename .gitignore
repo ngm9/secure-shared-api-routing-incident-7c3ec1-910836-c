@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+*.log
+.DS_Store
+.kube/
+.k3d-state/
+.local/
+cluster/dashboard-token.txt
